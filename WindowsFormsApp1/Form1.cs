@@ -10,21 +10,17 @@ namespace WindowsFormsApp1{
         }
 
         FolderBrowserDialog folder = new FolderBrowserDialog();
-        DateTime selectedDate;
+        DateTime selectedDate = DateTime.Now;
         List<String> filesToDelete = new List<String>();
-        string fileType;
-
-        private void Form1_Load(object sender, EventArgs e){
-
-        }
+        List<String> directoryToDelete = new List<String>();
+        string filePath;
         private void btnOpenFile_Click(object sender, EventArgs e){
-            folder.ShowNewFolderButton = true;
-            DialogResult result = folder.ShowDialog();
-            if(result == DialogResult.OK){
-                GetDirect(folder.SelectedPath);
-            }
+            lbSelectedFiles.Items.Clear();
+            filesToDelete.Clear();
+            GetFiles();
         }
         private void btnDeleteItems_Click(object sender, EventArgs e){
+            btnDeleteItems.Text = "Delete " + filesToDelete.Count + " Items";
             if (filesToDelete.Count == 0){
                 MessageBox.Show("Please select a folder to delete from");
             }else{
@@ -34,32 +30,47 @@ namespace WindowsFormsApp1{
             }
         }
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e){
+            filesToDelete.Clear();
+            lbSelectedFiles.Items.Clear();
+
             selectedDate = dateTimePicker1.Value;
             selectedDate.ToString("MM-dd-yyy");
+            
+            GetDirect();
         }
-        private void GetDirect(String target){
-
-            string[] folder = Directory.GetFiles(target);
-            foreach(string i in folder){
-                DateTime creation = Creation(i);
-                int compareTimes = DateTime.Compare(creation, selectedDate);
-                if (compareTimes < 0){
-                    filesToDelete.Add(i);
-                    lbSelectedFiles.Items.Add(i);
-                    btnDeleteItems.Text = "Delete " + filesToDelete.Count + " Items";
+        private void GetDirect(){
+            if (filePath == null) { }
+            else if (filePath != null){
+                string[] folder = Directory.GetFiles(filePath);
+                foreach (string i in folder){
+                    DateTime creation = Creation(i);
+                    int compareTimes = DateTime.Compare(creation, selectedDate);
+                    if (compareTimes < 0){
+                        filesToDelete.Add(i);
+                        lbSelectedFiles.Items.Add(i);
+                        btnDeleteItems.Text = "Delete " + filesToDelete.Count + " Items";
+                    }
                 }
-            }
-            string [] subDirectories = Directory.GetDirectories(target);
-            foreach(string s in subDirectories){
-                DateTime creation = Creation(s);
-                int compareTimes = DateTime.Compare(creation, selectedDate);
-                if (compareTimes == -1){
-                    filesToDelete.Add(s);
-                    lbSelectedFiles.Items.Add(s);
-                    btnDeleteItems.Text = "Delete " + filesToDelete.Count + " Items";
+                string[] subDirectories = Directory.GetDirectories(filePath);
+                foreach (string s in subDirectories){
+                    DateTime creation = Creation(s);
+                    int compareTimes = DateTime.Compare(creation, selectedDate);
+                    if (compareTimes == -1){
+                        directoryToDelete.Add(s);
+                        lbSelectedFiles.Items.Add(s);
+                        btnDeleteItems.Text = "Delete " + filesToDelete.Count + " Items";
+                    }
                 }
+                lblTestLabel.Text = filePath;
             }
-            lblTestLabel.Text = target.ToString();
+        }
+        private void GetFiles(){
+            folder.ShowNewFolderButton = true;
+            DialogResult result = folder.ShowDialog();
+            if (result == DialogResult.OK){
+                filePath = folder.SelectedPath;
+                GetDirect();
+            }
         }
         private DateTime Creation(String target){
             DateTime creation = new DateTime();
@@ -67,7 +78,12 @@ namespace WindowsFormsApp1{
             return creation;
         }
         private void Delete(String file){
-            File.Delete(file);
+            try{
+                File.Delete(file);
+            }
+            catch{
+                //Do nothing
+            }
         }
 
         private void btnRemoveSelected_Click(object sender, EventArgs e){
@@ -93,10 +109,6 @@ namespace WindowsFormsApp1{
         private void btnIncremental_Click(object sender, EventArgs e){
             Form2 f2 = new Form2();
             f2.Show();
-        }
-
-        private void cbFileTypes_SelectedIndexChanged(object sender, EventArgs e){
-            fileType = cbFileTypes.SelectedItem.ToString();
         }
     }
 }

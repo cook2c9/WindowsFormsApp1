@@ -36,15 +36,14 @@
             this.btnDeleteSelection = new System.Windows.Forms.Button();
             this.btnRemoveSelected = new System.Windows.Forms.Button();
             this.btnIncremental = new System.Windows.Forms.Button();
-            this.cbFileTypes = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnOpenFile
             // 
             this.btnOpenFile.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenFile.Location = new System.Drawing.Point(396, 286);
+            this.btnOpenFile.Location = new System.Drawing.Point(272, 291);
             this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(72, 27);
+            this.btnOpenFile.Size = new System.Drawing.Size(72, 28);
             this.btnOpenFile.TabIndex = 0;
             this.btnOpenFile.Text = "Open File";
             this.btnOpenFile.UseVisualStyleBackColor = true;
@@ -55,7 +54,7 @@
             this.dateTimePicker1.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(12, 14);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(456, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(332, 20);
             this.dateTimePicker1.TabIndex = 1;
             this.dateTimePicker1.Value = new System.DateTime(2020, 1, 28, 8, 45, 58, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
@@ -63,9 +62,9 @@
             // btnDeleteItems
             // 
             this.btnDeleteItems.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteItems.Location = new System.Drawing.Point(493, 231);
+            this.btnDeleteItems.Location = new System.Drawing.Point(381, 216);
             this.btnDeleteItems.Name = "btnDeleteItems";
-            this.btnDeleteItems.Size = new System.Drawing.Size(98, 42);
+            this.btnDeleteItems.Size = new System.Drawing.Size(98, 57);
             this.btnDeleteItems.TabIndex = 2;
             this.btnDeleteItems.Text = "Delete Items";
             this.btnDeleteItems.UseVisualStyleBackColor = true;
@@ -75,9 +74,9 @@
             // 
             this.lblTestLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTestLabel.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestLabel.Location = new System.Drawing.Point(12, 286);
+            this.lblTestLabel.Location = new System.Drawing.Point(12, 291);
             this.lblTestLabel.Name = "lblTestLabel";
-            this.lblTestLabel.Size = new System.Drawing.Size(378, 26);
+            this.lblTestLabel.Size = new System.Drawing.Size(254, 28);
             this.lblTestLabel.TabIndex = 3;
             this.lblTestLabel.Text = "Choose A File";
             this.lblTestLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -86,15 +85,15 @@
             // 
             this.lbSelectedFiles.FormattingEnabled = true;
             this.lbSelectedFiles.ItemHeight = 15;
-            this.lbSelectedFiles.Location = new System.Drawing.Point(12, 74);
+            this.lbSelectedFiles.Location = new System.Drawing.Point(12, 59);
             this.lbSelectedFiles.Name = "lbSelectedFiles";
-            this.lbSelectedFiles.Size = new System.Drawing.Size(456, 199);
+            this.lbSelectedFiles.Size = new System.Drawing.Size(332, 214);
             this.lbSelectedFiles.TabIndex = 6;
             // 
             // btnDeleteSelection
             // 
             this.btnDeleteSelection.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteSelection.Location = new System.Drawing.Point(493, 147);
+            this.btnDeleteSelection.Location = new System.Drawing.Point(381, 132);
             this.btnDeleteSelection.Name = "btnDeleteSelection";
             this.btnDeleteSelection.Size = new System.Drawing.Size(98, 78);
             this.btnDeleteSelection.TabIndex = 8;
@@ -105,7 +104,7 @@
             // btnRemoveSelected
             // 
             this.btnRemoveSelected.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveSelected.Location = new System.Drawing.Point(493, 74);
+            this.btnRemoveSelected.Location = new System.Drawing.Point(381, 59);
             this.btnRemoveSelected.Name = "btnRemoveSelected";
             this.btnRemoveSelected.Size = new System.Drawing.Size(98, 67);
             this.btnRemoveSelected.TabIndex = 9;
@@ -116,7 +115,7 @@
             // btnIncremental
             // 
             this.btnIncremental.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncremental.Location = new System.Drawing.Point(519, 326);
+            this.btnIncremental.Location = new System.Drawing.Point(381, 291);
             this.btnIncremental.Name = "btnIncremental";
             this.btnIncremental.Size = new System.Drawing.Size(98, 42);
             this.btnIncremental.TabIndex = 10;
@@ -124,38 +123,25 @@
             this.btnIncremental.UseVisualStyleBackColor = true;
             this.btnIncremental.Click += new System.EventHandler(this.btnIncremental_Click);
             // 
-            // cbFileTypes
-            // 
-            this.cbFileTypes.FormattingEnabled = true;
-            this.cbFileTypes.Location = new System.Drawing.Point(484, 12);
-            this.cbFileTypes.Name = "cbFileTypes";
-            this.cbFileTypes.Size = new System.Drawing.Size(123, 23);
-            this.cbFileTypes.TabIndex = 4;
-            this.cbFileTypes.Text = "File Type";
-            this.cbFileTypes.SelectedIndexChanged += new System.EventHandler(this.cbFileTypes_SelectedIndexChanged);
-            // 
             // frmDeleteFiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 369);
+            this.ClientSize = new System.Drawing.Size(491, 343);
             this.Controls.Add(this.btnIncremental);
             this.Controls.Add(this.btnRemoveSelected);
             this.Controls.Add(this.btnDeleteSelection);
             this.Controls.Add(this.lbSelectedFiles);
-            this.Controls.Add(this.cbFileTypes);
             this.Controls.Add(this.lblTestLabel);
             this.Controls.Add(this.btnDeleteItems);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnOpenFile);
             this.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "frmDeleteFiles";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "File Deletion";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
@@ -170,7 +156,6 @@
         private System.Windows.Forms.Button btnDeleteSelection;
         private System.Windows.Forms.Button btnRemoveSelected;
         private System.Windows.Forms.Button btnIncremental;
-        private System.Windows.Forms.ComboBox cbFileTypes;
     }
 }
 
